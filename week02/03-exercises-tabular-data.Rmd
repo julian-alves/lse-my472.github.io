@@ -9,12 +9,12 @@ You will use the `tidyverse` package and the dataset called `ip_and_unemployment
 
 ```{r setup}
 # load in libraries:
-suppressMessages(library(_________))
+suppressMessages(library(tidyverse))
 # or just library(____________)
 
 # read ip_and_unemployment.csv
-ip_and_unemployment <- _________________
-head(______)
+ip_and_unemployment <- read.csv("ip_and_unemployment.csv")
+head(ip_and_unemployment)
 
 ```
     
@@ -25,8 +25,7 @@ What are the highest unemployment rates for France and Spain during the time of 
 
 # data processing
 ipu_clean <- ip_and_unemployment %>%
-  pivot_____(id_cols = c(_____, _____), 
-              names_from = ______, values_from = ______)  # long to wide
+  pivot_wider(names_from = series, values_from = value)  # long to wide
 
 # France
 ipu_clean %>%
